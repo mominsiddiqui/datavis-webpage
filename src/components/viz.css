@@ -1,0 +1,250 @@
+.viz-container {
+    max-width: 64rem; /* 4xl */
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .controls {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    height: 140px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .viz-button {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 9999px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .viz-button.active {
+    background-color: #2563eb;
+    color: white;
+  }
+  
+  .viz-button.inactive {
+    background-color: #e5e7eb;
+    color: #374151;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #4b5563;
+    margin-bottom: 0.25rem;
+  }
+  
+  .legend-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .legend-color {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 0.125rem;
+    margin-right: 0.25rem;
+  }
+  
+  .legend-student { background-color: rgba(59, 130, 246, 0.15); }
+  .legend-llm { background-color: rgba(239, 68, 68, 0.15); }
+  .legend-mixed { background-color: rgba(234, 179, 8, 0.15); }
+  
+  .essay-content {
+    display: flex;
+  }
+  
+  .main-content {
+    flex: 1;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    margin-bottom: 1.5rem;
+    max-width: calc(100% - 200px);
+    margin-right: 200px;
+  }
+  
+  .paragraph {
+    position: relative;
+    display: flex;
+    margin-bottom: 1.5rem;
+  }
+  
+  .paragraph-content {
+    flex: 1;
+    position: relative;
+  }
+  
+  .paragraph-metrics {
+    position: absolute;
+    right: -220px; /* Position to the right of the paragraph */
+    top: 0;
+    width: 200px;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+  }
+  
+  .paragraph-metrics:hover {
+    opacity: 1;
+  }
+  
+  .metrics-container {
+    background-color: #f3f4f6;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+  }
+  
+  .metrics-row {
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .metrics-value {
+    font-weight: bold;
+  }
+  
+  .student-insert {
+    color: #2563eb; /* blue-600 */
+  }
+  
+  .ai-insert {
+    color: #16a34a; /* green-600 */
+  }
+  
+  .student-delete {
+    color: #dc2626; /* red-600 */
+  }
+  
+  .ai-delete {
+    color: #ca8a04; /* yellow-600 */
+  }
+  
+  .metrics-sidebar {
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+    padding-left: 1rem;
+    width: 12rem;
+    transition: opacity 0.2s;
+  }
+  
+  .metrics-box {
+    background-color: #f3f4f6;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+  }
+  
+  .edit-marker {
+    display: inline-flex;
+    margin-left: 0.5rem;
+    align-items: center;
+  }
+  
+  .edit-count {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    margin-right: 0.25rem;
+  }
+  
+  .edit-count.student {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .edit-count.llm {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .nav-button:disabled {
+    background-color: #e5e7eb;
+    color: #6b7280;
+    cursor: not-allowed;
+  }
+  
+  .nav-button:not(:disabled) {
+    background-color: #2563eb;
+    color: white;
+  }
+  
+  .nav-button:not(:disabled):hover {
+    background-color: #1d4ed8;
+  }
+  
+  /* For mobile responsiveness */
+  @media (max-width: 768px) {
+    .paragraph {
+      flex-direction: column;
+    }
+    
+    .paragraph-metrics {
+      position: static;
+      width: 100%;
+      margin-left: 0;
+      margin-top: 10px;
+      right: auto;
+    }
+    
+    .main-content {
+      max-width: 100%;
+      margin-right: 0;
+    }
+  } 

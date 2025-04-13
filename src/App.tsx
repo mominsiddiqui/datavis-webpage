@@ -1,5 +1,7 @@
 import React from 'react';
 import { TypingVisualization } from './components/TypingVisualization';
+import AugmentedEssayViz from './components/highlight';
+import EssayAuthorshipDashboard from './components/statviz';
 import './App.css';
 
 function App() {
@@ -31,9 +33,29 @@ function App() {
           Above is an example visualization for the second metric of interest. The visualization was constructed using d3.js and is interactive. The x-axis represents time in minutes, and the y-axis represents the student. The circles represent the student's writing speed (WPM) at a given time. The color of the circle represents the type of AI assistance that the student is using. The size of the circle represents the student's writing speed. You can hover over the circles to see more information about the student's writing speed and the type of AI assistance they are using, additionally we spotlight similar circles in other rows as well.
         </p>
 
+        <div className="visualization-container">
+          <AugmentedEssayViz />
+          <div className="chart-caption">
+            Figure 2: Visualization of student-AI collaboration in essay writing. 
+            Color highlighting shows text authorship (blue for student, red for AI, yellow for mixed), 
+            with additional markers for rejected or modified AI suggestions. 
+            This visualization captures the first metric of interest: student-AI contribution ratio.
+          </div>
+        </div>
+
+        <div className="visualization-container">
+          <EssayAuthorshipDashboard />
+          <div className="chart-caption">
+            Figure 3: Dashboard showing essay authorship statistics. 
+            The visualization displays content authorship percentages between student and AI, 
+            AI suggestion retention rate, and edit statistics broken down by type.
+            This visualization captures the third metric of interest: engagement with AI feedback.
+          </div>
+        </div>
+
         <div className="citations">
           <h3>References</h3>
-          <p>[1] Susan D’Agostino. 2023. ChatGPT Advice Academics Can Use Now. https://www.insidehighered.com/news/2023/01/12/academic-experts-offeradvice-chatgpt Accessed: Jan 26, 2024.</p>
+          <p>[1] Susan D'Agostino. 2023. ChatGPT Advice Academics Can Use Now. https://www.insidehighered.com/news/2023/01/12/academic-experts-offeradvice-chatgpt Accessed: Jan 26, 2024.</p>
           <p>[2] Center for Teaching Exellence at The University of Kansas. 2023. Using AI ethically in writing assignments. https://cte.ku.edu/ethical-use-ai-writingassignments Accessed: Jan 26, 2024.</p>
           <p>[3] Scardamalia, Marlene, Carl Bereiter, and Rosanne Steinbach. "Teachability of reflective processes in written composition." Cognitive science 8.2 (1984): 173-190.</p>
           <p>[4] Munzner, Tamara. Visualization analysis and design. CRC press, 2014.</p>
