@@ -30,7 +30,7 @@ export const TypingVisualization: React.FC = () => {
       .style("opacity", 0);
 
     // Set up dimensions
-    const margin = { top: 20, right: 30, bottom: 40, left: 90 };
+    const margin = { top: 20, right: 120, bottom: 40, left: 90 };
     const width = 800 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
 
@@ -80,15 +80,15 @@ export const TypingVisualization: React.FC = () => {
 
       // Add legend
       const legendData = [
-        { color: '#0000FF', label: 'AI Tone Transformation Help' },
-        { color: '#FF0000', label: 'AI Review Help' },
-        { color: '#FFFF00', label: 'AI Elaboration Help' },
-        { color: '#008000', label: 'AI Structuring Help' },
-        { color: '#000000', label: 'Student Writing Alone' }
+        { color: '#0000FF', label: 'Tone' },
+        { color: '#FF0000', label: 'Review' },
+        { color: '#FFFF00', label: 'Elaboration' },
+        { color: '#008000', label: 'Structuring' },
+        { color: '#000000', label: 'No-AI' }
       ];
 
       const legend = svg.append('g')
-        .attr('transform', `translate(${width + 20}, 0)`);
+        .attr('transform', `translate(${width + 15}, 0)`);  // Moved legend further to the left
 
       legend.selectAll('rect')
         .data(legendData)
@@ -100,14 +100,16 @@ export const TypingVisualization: React.FC = () => {
         .attr('height', 20)
         .attr('fill', d => d.color);
 
-      legend.selectAll('text')
+      // Add label text (move these closer to the color boxes since we removed the color text)
+      legend.selectAll('.label-text')
         .data(legendData)
         .enter()
         .append('text')
-        .attr('x', 30)
+        .attr('class', 'label-text')
+        .attr('x', 25)  // Changed from 90 to 25 to move labels closer to color boxes
         .attr('y', (d, i) => i * 25 + 15)
         .text(d => d.label)
-        .style('font-size', '14px')
+        .style('font-size', '12px')  // Changed from '14px' to '12px' to make text smaller
         .attr('alignment-baseline', 'middle');
 
       // Add circles
